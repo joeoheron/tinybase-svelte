@@ -5,28 +5,36 @@
   import type { Relationships } from 'tinybase/relationships';
   import type { Checkpoints } from 'tinybase/checkpoints';
   import type { Queries } from 'tinybase/queries';
+  import type { Snippet } from 'svelte';
   import {
-    setStoreContext,
-    setMetricsContext,
-    setIndexesContext,
-    setRelationshipsContext,
-    setCheckpointsContext,
-    setQueriesContext,
-    setPersisterContext,
-    setSynchronizerContext,
-  } from '../context';
+    setStoreContext, setMetricsContext, setIndexesContext,
+    setRelationshipsContext, setCheckpointsContext, setQueriesContext,
+    setPersisterContext, setSynchronizerContext,
+  } from '../../context/index.js';
 
-  // Props
-  export let store: Store | MergeableStore;
-  export let metrics: Metrics | undefined = undefined;
-  export let indexes: Indexes | undefined = undefined;
-  export let relationships: Relationships | undefined = undefined;
-  export let checkpoints: Checkpoints | undefined = undefined;
-  export let queries: Queries | undefined = undefined;
-  export let persister: Persister | undefined = undefined;
-  export let synchronizer: Synchronizer | undefined = undefined;
+  let {
+    store,
+    metrics,
+    indexes,
+    relationships,
+    checkpoints,
+    queries,
+    persister,
+    synchronizer,
+    children,
+  }: {
+    store: Store | MergeableStore;
+    metrics?: Metrics;
+    indexes?: Indexes;
+    relationships?: Relationships;
+    checkpoints?: Checkpoints;
+    queries?: Queries;
+    persister?: Persister;
+    synchronizer?: Synchronizer;
+    children: Snippet;
+  } = $props();
 
-  // Set all contexts
+  // setContext must be called synchronously during component initialisation.
   setStoreContext(store);
   if (metrics) setMetricsContext(metrics);
   if (indexes) setIndexesContext(indexes);
@@ -37,4 +45,4 @@
   if (synchronizer) setSynchronizerContext(synchronizer);
 </script>
 
-<slot />
+{@render children()}

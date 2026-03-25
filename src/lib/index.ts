@@ -1,30 +1,37 @@
-/**
- * svelte-tinybase
- * 
- * Svelte bindings for TinyBase - reactive local-first data management
- * 
- * @example
- * ```svelte
- * <script>
- *   import { createStore } from 'tinybase';
- *   import { TinyBaseProvider, table, rowIds } from 'svelte-tinybase';
- *   
- *   const store = createStore();
- *   store.setTable('todos', { '1': { title: 'Hello', done: false } });
- *   
- *   const todos = table(store, 'todos');
- *   const ids = rowIds(store, 'todos');
- * </script>
- * 
- * <TinyBaseProvider {store}>
- *   {#each $ids as id}
- *     <div>{$todos[id].title}</div>
- *   {/each}
- * </TinyBaseProvider>
- * ```
- */
+// Context helpers + Provider
+export * from './context/index.js';
+export { default as Provider } from './components/Provider.svelte';
 
-// Re-export everything
-export * from './stores';
-export * from './context';
-export * from './components';
+// Store rune bindings
+export {
+  useHasTables, useTables, useTableIds,
+  useHasTable, useTable, useTableCellIds,
+  useRowIds, useSortedRowIds, useRowCount, useHasRow, useRow,
+  useCellIds, useHasCell, useCell,
+  useHasValues, useValues, useValueIds, useHasValue, useValue,
+} from './store.svelte.js';
+
+// Metrics
+export { useMetricIds, useMetric } from './metrics.svelte.js';
+
+// Indexes
+export { useIndexIds, useSliceIds, useSliceRowIds } from './indexes.svelte.js';
+
+// Relationships
+export {
+  useRelationshipIds, useRemoteRowId, useLocalRowIds, useLinkedRowIds,
+} from './relationships.svelte.js';
+
+// Checkpoints
+export { useCheckpointIds, useCheckpoint, useCheckpointState } from './checkpoints.svelte.js';
+
+// Queries (TinyQL)
+export {
+  useQueryIds,
+  useResultTable, useResultTableCellIds,
+  useResultRowIds, useResultSortedRowIds, useResultRowCount,
+  useResultRow, useResultCellIds, useResultCell,
+} from './queries.svelte.js';
+
+// Synchronizer
+export { useSyncStatus, useIsConnected } from './synchronizer.svelte.js';

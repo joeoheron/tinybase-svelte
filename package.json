@@ -1,31 +1,31 @@
 {
   "name": "svelte-tinybase",
-  "version": "0.1.0",
-  "description": "Svelte bindings for TinyBase - reactive local-first data",
+  "version": "0.2.0",
+  "description": "Svelte 5 bindings for TinyBase — rune-based reactive local-first data",
   "type": "module",
+  "svelte": "./dist/index.js",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "svelte": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./stores": {
-      "types": "./dist/stores/index.d.ts",
-      "svelte": "./dist/stores/index.js",
-      "default": "./dist/stores/index.js"
+    "./ui": {
+      "types": "./dist/components/ui/index.d.ts",
+      "svelte": "./dist/components/ui/index.js",
+      "default": "./dist/components/ui/index.js"
     },
-    "./context": {
-      "types": "./dist/context/index.d.ts",
-      "svelte": "./dist/context/index.js",
-      "default": "./dist/context/index.js"
+    "./dom": {
+      "types": "./dist/components/dom/index.d.ts",
+      "svelte": "./dist/components/dom/index.js",
+      "default": "./dist/components/dom/index.js"
     },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "svelte": "./dist/components/index.js",
-      "default": "./dist/components/index.js"
+    "./inspector": {
+      "types": "./dist/components/inspector/index.d.ts",
+      "svelte": "./dist/components/inspector/index.js",
+      "default": "./dist/components/inspector/index.js"
     }
   },
   "files": [
@@ -38,33 +38,28 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
   },
   "peerDependencies": {
-    "svelte": "^4.0.0 || ^5.0.0",
+    "svelte": "^5.0.0",
     "tinybase": "^5.0.0"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/package": "^2.0.0",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "svelte": "^5.0.0",
-    "svelte-check": "^3.6.0",
+    "svelte-check": "^4.0.0",
     "tinybase": "^5.4.3",
     "typescript": "^5.0.0",
-    "vite": "^5.0.0"
+    "vite": "^6.0.0"
   },
   "keywords": [
     "svelte",
+    "svelte5",
+    "runes",
     "tinybase",
     "local-first",
     "reactive",
-    "store",
-    "crdt",
-    "sync",
     "offline"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gwan-co/svelte-tinybase"
-  }
+  "license": "MIT"
 }
