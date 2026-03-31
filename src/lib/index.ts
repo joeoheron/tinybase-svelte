@@ -1,6 +1,6 @@
 // Context helpers + Provider
-export * from './context/index.js';
-export { default as Provider } from './components/Provider.svelte';
+export * from './ui-svelte/context.js';
+export { default as Provider } from './ui-svelte/Provider.svelte';
 
 // Store rune bindings
 export {
@@ -9,21 +9,21 @@ export {
   useRowIds, useSortedRowIds, useRowCount, useHasRow, useRow,
   useCellIds, useHasCell, useCell,
   useHasValues, useValues, useValueIds, useHasValue, useValue,
-} from './store.svelte.js';
+} from './ui-svelte/store.svelte.js';
 
 // Metrics
-export { useMetricIds, useMetric } from './metrics.svelte.js';
+export { useMetricIds, useMetric } from './ui-svelte/metrics.svelte.js';
 
 // Indexes
-export { useIndexIds, useSliceIds, useSliceRowIds } from './indexes.svelte.js';
+export { useIndexIds, useSliceIds, useSliceRowIds } from './ui-svelte/indexes.svelte.js';
 
 // Relationships
 export {
   useRelationshipIds, useRemoteRowId, useLocalRowIds, useLinkedRowIds,
-} from './relationships.svelte.js';
+} from './ui-svelte/relationships.svelte.js';
 
 // Checkpoints
-export { useCheckpointIds, useCheckpoint, useCheckpointState } from './checkpoints.svelte.js';
+export { useCheckpointIds, useCheckpoint, useCheckpointState } from './ui-svelte/checkpoints.svelte.js';
 
 // Queries (TinyQL)
 export {
@@ -31,7 +31,7 @@ export {
   useResultTable, useResultTableCellIds,
   useResultRowIds, useResultSortedRowIds, useResultRowCount,
   useResultRow, useResultCellIds, useResultCell,
-} from './queries.svelte.js';
+} from './ui-svelte/queries.svelte.js';
 
 // Synchronizer
-export { useSyncStatus, useIsConnected } from './synchronizer.svelte.js';
+export { useSyncStatus, useIsConnected } from './ui-svelte/synchronizer.svelte.js';

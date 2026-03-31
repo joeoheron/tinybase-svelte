@@ -1,1 +1,1 @@
-export * from './components/ui/index.js';
+export * from './ui-svelte/index.js';
